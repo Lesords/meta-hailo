@@ -1,0 +1,31 @@
+From 56d5b580aafb71d2c2a57012e9c2c17708e84b0d Mon Sep 17 00:00:00 2001
+From: Lesords <lesords168@gmail.com>
+Date: Wed, 6 Aug 2025 06:43:05 +0000
+Subject: [PATCH] fix: fix a compilation error
+
+---
+ libs/postprocesses/common/labels/imagenet.hpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/libs/postprocesses/common/labels/imagenet.hpp b/libs/postprocesses/common/labels/imagenet.hpp
+index 8685dc9..4f882e5 100644
+--- a/libs/postprocesses/common/labels/imagenet.hpp
++++ b/libs/postprocesses/common/labels/imagenet.hpp
+@@ -3,6 +3,7 @@
+ * Distributed under the LGPL license (https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt)
+ **/
+ #pragma once
++#include <cstdint>
+ #include <map>
+ namespace common
+ {
+@@ -1007,4 +1008,4 @@ namespace common
+         {997, "bolete"},
+         {998, "ear, spike, capitulum"},
+         {999, "toilet tissue, toilet paper}, bathroom tissue"}};
+-}
+\ No newline at end of file
++}
+-- 
+2.43.0
+

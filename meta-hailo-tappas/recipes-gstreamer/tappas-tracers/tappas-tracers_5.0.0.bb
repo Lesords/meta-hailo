@@ -5,7 +5,9 @@ DESCRIPTION = "tappas-tracers GStreamer plugin \
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM += "file://../../LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
-SRC_URI = "git://git@github.com/hailo-ai/tappas.git;protocol=https;branch=master"
+SRC_URI = "git://git@github.com/hailo-ai/tappas.git;protocol=https;branch=master \
+           file://0001-fix-fix-a-compilation-error.patch \
+           "
 SRCREV = "86de5271c78429a093f8707bdaf413d5569beaeb"
 
 inherit hailotools-base
