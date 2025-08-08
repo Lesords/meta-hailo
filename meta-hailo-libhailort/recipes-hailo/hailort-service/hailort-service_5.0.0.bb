@@ -19,7 +19,10 @@ EXTRA_OECMAKE += "-DHAILO_BUILD_SERVICE=ON"
 
 do_install:append() {
   install -d ${D}${bindir}
+  install -d ${D}${libdir}
   install -m 0755 ${BIN_SRC_DIR}hailort_service ${D}${bindir}
+  install -m 0755 ${LIB_SRC_DIR}/libhailort.so.4.12.0 ${D}${libdir}
+  ln -s -r ${D}${libdir}/libhailort.so.4.12.0 ${D}${libdir}/libhailort.so
 
   install -d ${D}${systemd_system_unitdir}
   cp ${S}/hailort/hailort_service/hailort.service ${D}${systemd_system_unitdir}
@@ -31,3 +34,4 @@ do_install:append() {
 }
 
 FILES:${PN} += "${bindir}/hailort_service ${systemd_system_unitdir}/hailort.service ${sysconfdir}/default/hailort_service"
+FILES:${PN} += "${libdir}/libhailort.so.4.12.0 ${libdir}/libhailort.so"
