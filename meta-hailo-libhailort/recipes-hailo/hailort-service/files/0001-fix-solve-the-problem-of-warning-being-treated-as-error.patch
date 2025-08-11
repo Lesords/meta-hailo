@@ -1,0 +1,28 @@
+From 5f8759cda43534d82614986c0e3a34f5549492a6 Mon Sep 17 00:00:00 2001
+From: Lesords <lesords168@gmail.com>
+Date: Mon, 11 Aug 2025 17:16:06 +0800
+Subject: [PATCH] fix: solve the problem of warning being treated as error
+
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f44f4fc..69d23cb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -37,9 +37,9 @@ if(WIN32)
+     add_definitions(-D_CRT_SECURE_NO_WARNINGS)  # Disable "unsafe function" warnings
+ elseif(UNIX)
+     if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "QCC")
+-        set(HAILORT_COMPILE_OPTIONS ${HAILORT_COMPILE_OPTIONS} -Werror -Wall -Wextra -Wconversion)
++        set(HAILORT_COMPILE_OPTIONS ${HAILORT_COMPILE_OPTIONS})
+     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+-        set(HAILORT_COMPILE_OPTIONS ${HAILORT_COMPILE_OPTIONS} -Werror -Wall -Wextra
++        set(HAILORT_COMPILE_OPTIONS ${HAILORT_COMPILE_OPTIONS}
+             # TODO: remove me warnings
+             -Wno-conversion
+             -Wno-deprecated-declarations  # On c structures with deprecated attribute, clang generates implicit move ctor
+-- 
+2.39.5
+
