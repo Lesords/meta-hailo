@@ -30,4 +30,4 @@ do_install:append() {
 }
 
 FILES:${PN} += "${libdir}/libhailort.so.${PV}"
-FILES:${PN}-dev += "${includedir}/hailort ${includedir}/hailort/* ${libdir}/libhailort.so"
+FILES:${PN}-dev += "${includedir}/hailo ${includedir}/hailo/* ${libdir}/libhailort.so ${libdir}/cmake/HailoRT"
