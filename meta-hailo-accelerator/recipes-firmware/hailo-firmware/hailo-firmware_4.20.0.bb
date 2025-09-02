@@ -1,6 +1,6 @@
 DESCRIPTION = "hailo firmware \
 				hailo8 chip firmware (hailo_fw.bin) \
-				the recipe copies the file to /lib/firmware/hailo/ on the target device’s root file system"
+				the recipe copies the file to /usr/lib/firmware/hailo/ on the target device’s root file system"
 
 BASE_URI = "https://hailo-hailort.s3.eu-west-2.amazonaws.com"
 FW_AWS_DIR = "Hailo8/${PV}/FW"
@@ -15,9 +15,9 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/${LICENSE_FILE};md5=263ee034adc02556d59ab1
 FW_PATH = "${WORKDIR}/hailo8_fw.${PV}.bin"
 
 do_install() {
-	# Stores hailo8_fw.bin in the rootfs under /lib/firmware/hailo
-	install -d ${D}/lib/firmware/hailo
-	install -m 0755 ${FW_PATH} ${D}/lib/firmware/hailo/hailo8_fw.bin
+	# Stores hailo8_fw.bin in the rootfs under /usr/lib/firmware/hailo
+	install -d ${D}/usr/lib/firmware/hailo
+	install -m 0755 ${FW_PATH} ${D}/usr/lib/firmware/hailo/hailo8_fw.bin
 }
 
-FILES:${PN} += "/lib /lib/* /lib/firmware/hailo/hailo8_fw*"
+FILES:${PN} += "/usr/lib /usr/lib/* /usr/lib/firmware/hailo/hailo8_fw*"
