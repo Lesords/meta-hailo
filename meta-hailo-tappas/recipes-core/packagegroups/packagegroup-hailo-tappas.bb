@@ -11,7 +11,6 @@ PACKAGES = "\
             packagegroup-hailo-tappas-dev-pkg"
 
 RDEPENDS:${PN} = "\
-    hailo-post-processes \
     libgsthailo \
     libgsthailotools"
 
